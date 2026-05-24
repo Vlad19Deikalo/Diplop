@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Облік меблевої фурнітури</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Склад Фурнітури</h2>
+            <nav>
+                <a href="index.html" class="active">📊 Дашборд</a>
+                <a href="inventory.html">📦 Облік фурнітури</a>
+                <a href="suppliers.html">🤝 Постачальники</a>
+                <a href="orders.html">🔄 Рух складу</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Панель керування складом</h1>
+                <div class="user-profile">Оператор: V.Deikalo</div>
+            </header>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Усього найменувань</h3>
+                    <p class="stat-value" id="total-items">1,240</p>
+                </div>
+                <div class="stat-card alert">
+                    <h3>Критичний рівень (мало на складі)</h3>
+                    <p class="stat-value" id="low-stock">5</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Останні операції</h3>
+                    <p class="stat-value" id="recent-transactions">12</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
