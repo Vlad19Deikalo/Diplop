@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід в систему | Склад фурнітури</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .login-body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #0f172a; }
+        .login-card { background: white; padding: 40px; border-radius: 12px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .login-card h2 { margin-top: 0; color: #1e293b; text-align: center; margin-bottom: 25px; }
+        .login-tips { background: #f1f5f9; padding: 12px; border-radius: 6px; font-size: 0.85rem; color: #475569; margin-top: 20px; }
+    </style>
+</head>
+<body class="login-body">
+    <div class="login-card">
+        <h2>Вхід до ІС Обліку Складу</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-username">Логін (Користувач)</label>
+                <input type="text" id="login-username" required placeholder="Введіть логін">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Пароль</label>
+                <input type="password" id="login-password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Увійти в систему</button>
+        </form>
+        <div class="login-tips">
+            <strong>Дані для демонстрації диплому:</strong><br>
+            • Адмін: <code>admin</code> / Пароль: <code>admin123</code><br>
+            • Комірник: <code>operator</code> / Пароль: <code>user123</code>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рух складу | Склад фурнітури</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Склад Фурнітури</h2>
+            <nav id="main-navigation"></nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Журнал складських операцій</h1>
+                    <p class="subtitle">Модуль реєстрації приходу та розходу меблевої фурнітури</p>
+                </div>
+                <div class="user-profile" id="user-display">Завантаження профілю...</div>
+            </header>
+
+            <div class="inventory-grid">
+                <div class="content-card dynamic-form">
+                    <h2>Реєстрація операції</h2>
+                    <form id="transaction-form">
+                        <div class="form-group">
+                            <label for="t-furniture">Виберіть фурнітуру</label>
+                            <select id="t-furniture" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="t-type">Тип операції</label>
+                            <select id="t-type">
+                                <option value="Прихід">Надходження (Прихід від постачальника)</option>
+                                <option value="Розхід">Списання (Розхід на виробництво)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="t-quantity">Кількість (шт.)</label>
+                            <input type="number" id="t-quantity" min="1" value="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Виконати операцію</button>
+                    </form>
+                </div>
+
+                <div class="content-card inventory-list">
+                    <h2>Історія руху матеріальних цінностей</h2>
+                    <table class="data-table" id="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Дата / Час</th>
+                                <th>Артикул</th>
+                                <th>Назва фурнітури</th>
+                                <th>Тип операції</th>
+                                <th>Кількість</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

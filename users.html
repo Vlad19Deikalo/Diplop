@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Користувачі | Склад фурнітури</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Склад Фурнітури</h2>
+            <nav id="main-navigation">
+                <!-- Навігація згенерується через JS залежно від ролі -->
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Адміністрування користувачів</h1>
+                    <p class="subtitle">Управління обліковими записами та правами доступу до ІС</p>
+                </div>
+                <div class="user-profile" id="user-display"></div>
+            </header>
+
+            <div class="inventory-grid">
+                <div class="content-card dynamic-form">
+                    <h2>Створити користувача</h2>
+                    <form id="add-user-form">
+                        <div class="form-group">
+                            <label for="u-username">Логін</label>
+                            <input type="text" id="u-username" required placeholder="Напр., ivan_com">
+                        </div>
+                        <div class="form-group">
+                            <label for="u-name">ПІБ / Повне ім'я</label>
+                            <input type="text" id="u-name" required placeholder="Напр., Іванов І.І.">
+                        </div>
+                        <div class="form-group">
+                            <label for="u-role">Роль у системі</label>
+                            <select id="u-role">
+                                <option value="Адміністратор">Адміністратор (Повний доступ)</option>
+                                <option value="Оператор">Оператор / Комірник (Тільки облік)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="u-desc">Опис / Посада</label>
+                            <input type="text" id="u-desc" placeholder="Напр., Старший комірник цеху №2">
+                        </div>
+                        <div class="form-group">
+                            <label for="u-pass">Пароль</label>
+                            <input type="password" id="u-pass" required placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Зберегти користувача</button>
+                    </form>
+                </div>
+
+                <div class="content-card inventory-list">
+                    <h2>Список співробітників із доступом до ІС</h2>
+                    <table class="data-table" id="users-table">
+                        <thead>
+                            <tr>
+                                <th>Логін</th>
+                                <th>Повне ім'я</th>
+                                <th>Роль</th>
+                                <th>Посада / Опис</th>
+                                <th>Дії</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

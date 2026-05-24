@@ -1,46 +1,57 @@
 :root {
-    --bg-color: #f4f6f9;
-    --sidebar-color: #1e293b;
+    --bg-color: #f8fafc;
+    --sidebar-color: #0f172a;
     --text-color: #334155;
     --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
     --card-bg: #ffffff;
     --danger: #ef4444;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --border-color: #e2e8f0;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
 }
 
 .app-container {
-    display: flex;
+    display: block; /* Забезпечує коректний потік для друку/генерації */
     min-height: 100vh;
 }
 
+/* Макет з боковою панеллю без flex на рівні body, щоб уникнути багів */
 .sidebar {
     width: 260px;
     background-color: var(--sidebar-color);
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
 }
 
 .sidebar h2 {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.3rem;
+    margin-bottom: 35px;
     text-align: center;
     color: #38bdf8;
+    letter-spacing: 0.5px;
 }
 
 .sidebar nav a {
     display: block;
-    color: #cbd5e1;
+    color: #94a3b8;
     padding: 12px 15px;
     text-decoration: none;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    transition: 0.3s;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .sidebar nav a:hover, .sidebar nav a.active {
@@ -49,45 +60,189 @@ body {
 }
 
 .main-content {
-    flex-grow: 1;
-    padding: 30px;
+    margin-left: 260px;
+    padding: 40px;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 35px;
 }
 
+header h1 {
+    margin: 0 0 5px 0;
+    font-size: 1.75rem;
+    color: #1e293b;
+}
+
+.subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.user-profile {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    background: #e2e8f0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Статистика */
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    display: table;
+    width: 100%;
+    margin-bottom: 35px;
+    border-collapse: separate;
+    border-spacing: 20px 0;
 }
 
 .stat-card {
+    display: table-cell;
     background: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    float: left;
+    margin-right: 15px;
 }
 
 .stat-card h3 {
-    margin: 0 0 10px 0;
-    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+    font-size: 0.85rem;
     color: #64748b;
+    text-transform: uppercase;
 }
 
 .stat-value {
     font-size: 1.8rem;
-    font-weight: bold;
+    font-weight: 700;
     margin: 0;
-    color: var(--sidebar-color);
+    color: #0f172a;
 }
 
 .stat-card.alert {
     border-left: 5px solid var(--danger);
 }
+
+/* Контентні карти */
+.content-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.card-header {
+    display: table;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    display: table-cell;
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* Таблиці */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+.data-table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+}
+
+/* Кнопки та форми */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary { background: var(--accent-color); color: white; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-danger { background: var(--danger); color: white; padding: 6px 12px; font-size: 0.85rem; }
+.btn-excel { background: var(--success); color: white; display: table-cell; float: right; }
+.btn-excel:hover { background: #059669; }
+
+.inventory-grid {
+    display: table;
+    width: 100%;
+}
+
+.dynamic-form {
+    display: table-cell;
+    width: 30%;
+    padding-right: 30px;
+    vertical-align: top;
+}
+
+.inventory-list {
+    display: table-cell;
+    width: 70%;
+    vertical-align: top;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#search-input {
+    width: 300px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    float: right;
+}
+
+/* Статуси бейджі */
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.badge-success { background: #dcfce7; color: #15803d; }
+.badge-danger { background: #fee2e2; color: #b91c1c; }

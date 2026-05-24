@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Облік фурнітури | Склад</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Склад Фурнітури</h2>
+            <nav id="main-navigation"></nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Управління складськими залишками</h1>
+                    <p class="subtitle">Модуль інвентаризації та додавання нових номенклатурних позицій</p>
+                </div>
+                <div class="user-profile" id="user-display">Завантаження профілю...</div>
+            </header>
+
+            <div class="inventory-grid">
+                <div class="content-card dynamic-form">
+                    <h2>Додати нову фурнітуру</h2>
+                    <form id="add-furniture-form">
+                        <div class="form-group">
+                            <label for="f-sku">Артикул (SKU)</label>
+                            <input type="text" id="f-sku" placeholder="Напр., M-1024" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="f-name">Назва найменування</label>
+                            <input type="text" id="f-name" placeholder="Напр., Завіса суцільнометалева" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="f-type">Категорія / Тип</label>
+                            <select id="f-type">
+                                <option value="Завіси">Завіси (петлі)</option>
+                                <option value="Ручки">Ручки меблеві</option>
+                                <option value="Напрямні">Напрямні для шухляд</option>
+                                <option value="Кріплення">Кріплення та конфірмати</option>
+                                <option value="Опори">Опори та ніжки</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="f-quantity">Поточна кількість на складі (шт.)</label>
+                            <input type="number" id="f-quantity" min="0" value="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="f-min">Мінімально необхідний залишок (критичний поріг)</label>
+                            <input type="number" id="f-min" min="0" value="20" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="f-supplier">Постачальник</label>
+                            <select id="f-supplier"></select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Зберегти на склад</button>
+                    </form>
+                </div>
+
+                <div class="content-card inventory-list">
+                    <div class="card-header">
+                        <h2>Повний список номенклатури</h2>
+                        <input type="text" id="search-input" placeholder="🔍 Швидкий пошук за назвою або артикулом...">
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table class="data-table" id="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Артикул</th>
+                                    <th>Назва</th>
+                                    <th>Категорія</th>
+                                    <th>Кількість</th>
+                                    <th>Крит. поріг</th>
+                                    <th>Постачальник</th>
+                                    <th>Статус</th>
+                                    <th>Дії</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

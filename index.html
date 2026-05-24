@@ -3,43 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Облік меблевої фурнітури</title>
+    <title>Дашборд | Склад меблевої фурнітури</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="app-container">
         <aside class="sidebar">
             <h2>Склад Фурнітури</h2>
-            <nav>
-                <a href="index.html" class="active">📊 Дашборд</a>
-                <a href="inventory.html">📦 Облік фурнітури</a>
-                <a href="suppliers.html">🤝 Постачальники</a>
-                <a href="orders.html">🔄 Рух складу</a>
-            </nav>
+            <nav id="main-navigation"></nav>
         </aside>
 
         <main class="main-content">
             <header>
-                <h1>Панель керування складом</h1>
-                <div class="user-profile">Оператор: V.Deikalo</div>
+                <div class="header-title">
+                    <h1>Панель керування складом</h1>
+                    <p class="subtitle">Інформаційна система обліку матеріальних залишків</p>
+                </div>
+                <div class="user-profile" id="user-display">Завантаження профілю...</div>
             </header>
 
             <section class="stats-grid">
                 <div class="stat-card">
-                    <h3>Усього найменувань</h3>
-                    <p class="stat-value" id="total-items">1,240</p>
-                </div>
-                <div class="stat-card alert">
-                    <h3>Критичний рівень (мало на складі)</h3>
-                    <p class="stat-value" id="low-stock">5</p>
+                    <div class="stat-icon">📦</div>
+                    <div>
+                        <h3>Усього фурнітури (найменувань)</h3>
+                        <p class="stat-value" id="total-types">0</p>
+                    </div>
                 </div>
                 <div class="stat-card">
-                    <h3>Останні операції</h3>
-                    <p class="stat-value" id="recent-transactions">12</p>
+                    <div class="stat-icon" style="color: #10b981;">📊</div>
+                    <div>
+                        <h3>Загальна кількість (одиниць)</h3>
+                        <p class="stat-value" id="total-items">0</p>
+                    </div>
+                </div>
+                <div class="stat-card" id="low-stock-card">
+                    <div class="stat-icon">⚠️</div>
+                    <div>
+                        <h3>Критичний рівень залишків</h3>
+                        <p class="stat-value" id="low-stock-count">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-actions">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h2>Генерація аналітичної звітності</h2>
+                        <button class="btn btn-excel" id="export-excel-btn">📊 Експортувати звіт в Excel (.xls)</button>
+                    </div>
+                    <p>Натисніть кнопку для миттєвого вивантаження повної відомості про поточні залишки меблевої фурнітури на складі, включаючи інформацію про постачальників та дефіцитні позиції.</p>
+                </div>
+            </section>
+
+            <section class="recent-section">
+                <div class="content-card">
+                    <h2>Останні оновлення на складі</h2>
+                    <table class="data-table" id="recent-table">
+                        <thead>
+                            <tr>
+                                <th>Артикул</th>
+                                <th>Назва фурнітури</th>
+                                <th>Тип</th>
+                                <th>Кількість на складі</th>
+                                <th>Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </section>
         </main>
     </div>
+
     <script src="js/main.js"></script>
 </body>
 </html>
